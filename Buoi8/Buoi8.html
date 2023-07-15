@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Hàm Fetch()
+        // Cú pháp : fetch(url, options)
+        // Trong đó :
+        // Url : Đường dẫn đến API (endpoint)
+        // Options : Các tùy chọn cho request. Bao gồm :
+        // +) method : Phương thức HTTP (GET, POST, PUT, PATCH, DELETE)
+        // +) headers : các headers của request
+        // +) body : Dữ liệu gửi kèm thèo request
+
+        const endPoint = "https://jsonplaceholder.typicode.com/users";
+        // Get để lấy dữ liệu thì thường không cần options
+        fetch(endPoint).then((response) => {
+            // Dữ liệu trả về thường là dạng JSON, nên ở đấy chúng ta cần phải chuyển về dạng object để có thể sử dụng
+            return response.json();
+        }).then((data) => {
+            data.forEach((user) => {
+                document.body.insertAdjacentHTML(
+                    "beforeend",
+                    `<p>${user.name}</p>`
+                );
+            });
+        });
+
+        // Post để gửi dữ liệu lên server JSONPlaceholder
+        const postOptions = {   
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                {
+                name: "Son",
+                email: "son@gmail.com",
+                phone: "0867018407",
+                username: "AureoLe",
+                website: "son.com",
+            }
+            )
+        };
+
+        fetch(endPoint, postOptions)
+        .then(response => response.json())
+        .then(data => {
+            if (data.id) {
+                document.body.insertAdjacentHTML(
+                    "beforeend",
+                    `<p>${data.name}</p>`
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>

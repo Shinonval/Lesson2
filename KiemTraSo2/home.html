@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiem Tra So 2</title>
+    <script>
+        const isLogin = localStorage.getItem("isLogin");
+
+    if (!isLogin) {
+    // Nếu trang yêu cầu bắt buộc phải đăng nhập thì thông báo và chuyển hướng
+    window.location.href = "/KiemTraSo2/dangnhap.html";
+    }
+    </script>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <button id="logout-button">Đăng xuất</button>
+    <script src="./home.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+#logout-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: pink;
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
